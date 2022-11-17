@@ -10,12 +10,12 @@
     <link href='https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900' rel='stylesheet'>
 </head>
 
-<body>
+<body class="fixed">
     <div class="merged">
          <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
         <div class="container" id="navbar-content">
-            <a class="navbar-brand" href="index.php">PSB</a>
+            <a class="navbar-brand" href="index.php" id="logo">PSB</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>

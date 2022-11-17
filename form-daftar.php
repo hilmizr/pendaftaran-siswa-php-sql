@@ -11,7 +11,7 @@
     <link href='https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900' rel='stylesheet'>
 </head>
 
-<body>
+<body class="fixed">
     <div class="merged">
          <!-- Navbar -->
          <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
@@ -33,12 +33,12 @@
     <main class="container d-flex flex-column justify-content-center align-items-center vh-100">
         <div class="card border-0 shadow" id="frm-card">
             <div class="card-body p-5">
-                <h1 class="mb-4 px-md-5" id="frm-daftar-title">Formulir <span>Pendaftaran</span></h1>
+                <h1 class="mb-4 px-md-5 mx-auto" id="frm-daftar-title">Formulir <span>Pendaftaran</span></h1>
                 <form action="proses-pendaftaran.php" method="POST" id="frm-daftar">
                     <div class="mb-3 row">
                         <label for="nama" class="col-md-2 col-form-label">Nama</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="nama" placeholder="Nama Lengkap"/>
+                            <input type="text" name="nama" placeholder="Nama Lengkap"/>
                         </div>
                     </div>
                     <div class="mb-3 row">
@@ -62,14 +62,14 @@
                     </div>
                     <div class="mb-4 row">
                         <label for="agama" class="col-md-2 col-form-label">Agama</label>
-                        <div class="col-md-10">
-                            <select class="form-select" name="agama">
-                                <option selected>-</option>
-                                <option>Islam</option>
-                                <option>Kristen</option>
-                                <option>Hindu</option>
-                                <option>Budha</option>
-                                <option>Atheis</option>
+                        <div class="col-md-10"> 
+                            <select class="form-select selectpicker" name="agama" id="agama-select">
+                                <option selected class="agama">-</option>
+                                <option class="agama">Islam</option>
+                                <option class="agama">Kristen</option>
+                                <option class="agama">Hindu</option>
+                                <option class="agama">Budha</option>
+                                <option class="agama">Atheis</option>
                             </select>
                         </div>
                     </div>

@@ -37,72 +37,84 @@ if( mysqli_num_rows($query) < 1 ){
     <link href='https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900' rel='stylesheet'>
 </head>
 
-<body>
+<body class="fixed">
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-            <div class="container">
-                <a class="navbar-brand" href="index.php">Navbar</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div class="navbar-nav ms-auto">
-                        <a class="nav-item nav-link" href="index.php">Home</a>
-                        <a class="nav-item nav-link" href="form-daftar.php">Daftar Baru</a>
-                        <a class="nav-item nav-link active" href="list-siswa.php">Pendaftar</a>
-                    </div>
+    <div class="merged">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+        <div class="container" id="navbar-content">
+            <a class="navbar-brand" href="index.php">PSB</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-item nav-link" href="index.php">Home</a>
+                    <a class="nav-item nav-link" href="form-daftar.php">Daftar Baru</a>
+                    <a class="nav-item nav-link active" href="list-siswa.php">Pendaftar</a>
                 </div>
             </div>
+        </div>
     </nav>
 
-    <header>
-        <h3>Formulir Edit Siswa</h3>
-    </header>
-
-    <form action="proses-edit.php" method="POST">
-
-        <fieldset>
-
-            <input type="hidden" name="id" value="<?php echo $siswa['id'] ?>" />
-
-            <p>
-                <label for="nama">Nama: </label>
-                <input type="text" name="nama" placeholder="Nama Lengkap" value="<?php echo $siswa['nama'] ?>" />
-            </p>
-            <p>
-                <label for="alamat">Alamat: </label>
-                <textarea name="alamat"><?php echo $siswa['alamat'] ?></textarea>
-            </p>
-            <p>
-                <label for="jenis_kelamin">Jenis Kelamin: </label>
-                <?php $jk = $siswa['jenis_kelamin']; ?>
-                <label><input type="radio" name="jenis_kelamin" value="Laki-laki" <?php echo ($jk == 'Laki-laki') ? "checked": "" ?>> Laki-laki</label>
-                <label><input type="radio" name="jenis_kelamin" value="Perempuan" <?php echo ($jk == 'Perempuan') ? "checked": "" ?>> Perempuan</label>
-            </p>
-            <p>
-                <label for="agama">Agama: </label>
-                <?php $agama = $siswa['agama']; ?>
-                <select name="agama">
-                <option <?php echo ($agama == 'Islam') ? "selected": "" ?>>Islam</option>
-                <option <?php echo ($agama == 'Kristen') ? "selected": "" ?>>Kristen</option>
-                <option <?php echo ($agama == 'Hindu') ? "selected": "" ?>>Hindu</option>
-                <option <?php echo ($agama == 'Budha') ? "selected": "" ?>>Budha</option>
-                <option <?php echo ($agama == 'Atheis') ? "selected": "" ?>>Atheis</option>
-            </select>
-            </p>
-            <p>
-                <label for="sekolah_asal">Sekolah Asal: </label>
-                <input type="text" name="sekolah_asal" placeholder="Nama Sekolah" value="<?php echo $siswa['sekolah_asal'] ?>" />
-            </p>
-            <p>
-                <input type="submit" value="Simpan" name="simpan" />
-            </p>
-
-        </fieldset>
-
-
-    </form>
+    <main class="container d-flex flex-column justify-content-center align-items-center vh-100">
+        <div class="card border-0 shadow" id="frm-card">
+            <div class="card-body p-5">
+                <h1 class="mb-4 px-md-5 mx-auto" id="frm-daftar-title">Formulir <span>Edit Siswa</span></h1>
+                <form action="proses-edit.php" method="POST" id="frm-daftar">
+                    <input type="hidden" name="id" value="<?php echo $siswa['id'] ?>">
+                    <div class="mb-3 row">
+                        <label for="nama" class="col-md-2 col-form-label">Nama</label>
+                        <div class="col-md-10">
+                            <input type="text" name="nama" placeholder="Nama Lengkap" value="<?php echo $siswa['nama'] ?>"/>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="alamat" class="col-md-2 col-form-label">Alamat</label>
+                        <div class="col-md-10">
+                            <textarea class="form-control" id="alamat" name="alamat" rows="3"><?php echo $siswa['alamat'] ?></textarea>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="jenis_kelamin" class="col-md-2 col-form-label">Jenis Kelamin</label>
+                        <?php $jk = $siswa['jenis_kelamin']; ?>
+                        <div class="col-md-10 d-flex align-items-center">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="jenis_kelamin" id="kelamin1" value="Laki-laki" <?php echo ($jk == 'Laki-laki') ? "checked": "" ?>>
+                                <label class="form-check-label" for="kelamin1">Laki-laki</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="jenis_kelamin" id="kelamin2" value="Perempuan" <?php echo ($jk == 'Perempuan') ? "checked": "" ?>>
+                                <label class="form-check-label" for="kelamin2">Perempuan</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-4 row">
+                        <label for="agama" class="col-md-2 col-form-label">Agama</label>
+                        <?php $agama = $siswa['agama']; ?>
+                        <div class="col-md-10"> 
+                            <select class="form-select selectpicker" name="agama" id="agama-select">
+                                <option <?php echo ($agama == 'Islam') ? "selected": "" ?> class="agama">Islam</option>
+                                <option <?php echo ($agama == 'Kristen') ? "selected": "" ?> class="agama">Kristen</option>
+                                <option <?php echo ($agama == 'Hindu') ? "selected": "" ?> class="agama">Hindu</option>
+                                <option <?php echo ($agama == 'Budha') ? "selected": "" ?> class="agama">Budha</option>
+                                <option <?php echo ($agama == 'Atheis') ? "selected": "" ?> class="agama">Atheis</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="sekolah_asal" class="col-md-2 col-form-label">Sekolah Asal</label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" id="sekolah_asal" name="sekolah_asal" placeholder="Nama Sekolah" value="<?php echo $siswa['sekolah_asal'] ?>">
+                        </div>
+                    </div>
+                    <input type="submit" value="Simpan" name="simpan" class="btn fw-semibold" id="daftar-btn-2"></input>
+                </form>
+            </div>
+        </div>
+        </main>
+        
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </body>
 

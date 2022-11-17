@@ -1,6 +1,6 @@
     /* Variables */
-    
-     :root {
+
+    :root {
         --c-dark: #1D152B;
         --c-gray: rgb(40, 22, 64);
         --c-glass: rgba(7, 5, 10, 0.65);
@@ -14,8 +14,9 @@
         --box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.75);
         --transition: all 0.5s ease;
     }
+
     /* Helpers */
-    
+
     * {
         padding: 0;
         margin: 0;
@@ -25,75 +26,91 @@
         color: var(--c-body);
         font-weight: 600;
     }
-    
+
     a {
         text-decoration: none;
         color: var(--c-brand);
         transition: var(--transition);
     }
-    
+
     a:hover {
         color: var(--c-brand-light);
     }
-    
+
     img {
         max-width: 100%;
         height: auto;
     }
-    
+
     .section-padding {
         padding-top: 140px;
         padding-bottom: 140px;
     }
-    
+
     .merged {
         background-image: url(../img/bg-pendaftaran.png);
         background-position: center;
         background-size: cover;
     }
-    
+
     body {
         margin: 0;
         height: 100%;
-        /* overflow: hidden;
-    display: block; */
     }
+
+    .fixed {
+        overflow: hidden;
+        display: block;
+    }
+
     /* Navbar */
-    
+
     .navbar {
         box-shadow: var(--box-shadow);
     }
-    
+
     .navbar .navbar-brand {
         color: var(--c-brand);
         font-size: 1.5rem;
+        transition: transform .4s;
     }
-    
+
+    .navbar .navbar-brand:hover {
+        text-shadow: 0 0 10px var(--c-brand);
+    }
+
     .navbar-custom {
         background-color: var(--c-glass);
     }
-    
+
     .navbar-nav .nav-link {
         font-weight: 400;
         color: var(--c-light);
+        transition: transform .4s;
     }
-    
+
     .navbar-nav .nav-link:hover {
         font-weight: 400;
         color: var(--c-brand-light);
+        text-shadow: 0 0 10px var(--c-brand);
     }
-    
+
+    #logo:hover {
+        text-shadow: 0 0 10px var(--c-brand);
+    }
+
     .navbar-nav .nav-link.active {
-        font-weight: 600;
+        font-weight: 400;
         color: var(--c-brand);
     }
+
     /* Hero */
-    
+
     #title {
         font-size: 4rem;
         color: var(--c-light);
     }
-    
+
     .btn {
         display: inline-block;
         text-decoration: none;
@@ -103,51 +120,50 @@
         font-size: 1.5rem;
         transition: transform .4s;
     }
-    
+
     .btn:hover {
-        transform: scale(1.075);
+        box-shadow: 0 0 10px var(--c-brand);
+        text-shadow: 0 0 10px var(--c-brand);
     }
-    
+
     #daftar-btn {
         background-color: var(--c-brand);
         border: 2px solid transparent;
         color: var(--c-dark);
+        transition: transform .4s;
     }
-    
+
     #pendaftar-btn {
         color: var(--c-light);
         background-color: transparent;
         border: 2px solid var(--c-brand);
+        transition: transform .4s;
     }
-    
+
     #hero-content {
         margin-top: -50px;
         position: relative;
     }
+
     /* Alert */
-    
+
     .alert {
         position: relative;
         border-radius: 30px;
         margin-top: -15px;
     }
-    
+
     .alert .alert-heading {
         font-weight: 600;
     }
-    
+
     .alert-berhasil {
         background-color: #F9BEFA;
         color: #58065A;
     }
-    /* Form */
-    
-    #frm-daftar input text {
-        background-color: var(--c-light);
-        color: var(--c-dark);
-        font-size: 13px;
-    }
-    
+
+    /* Form Daftar */
+
     #daftar-btn-2 {
         width: 100%;
         background: var(--c-brand);
@@ -161,41 +177,261 @@
         margin: 10px 5px;
         transition: all .2s ease-in-out;
     }
-    
+
     #frm-daftar label {
         color: var(--c-light);
         font-weight: 400;
+        font-size: 1rem;
     }
-    
-    #frm-daftar select option {
-        color: var(--c-dark);
-        font-weight: 400;
-    }
-    
+
     #frm-daftar-title {
         font-size: 2.5rem;
         font-weight: 600;
         color: var(--c-light);
+        text-align: center;
     }
-    
+
     #frm-daftar-title span {
         font-size: 2.5rem;
         font-weight: 600;
         color: var(--c-brand);
     }
-    
+
     #frm-card {
-        background: var(--c-glass);
+        /* background: rgba(7, 5, 10, 0.25); */
+        background: rgba(7, 5, 10, 0.1);
+        width: 900px;
+        box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.5);
+        margin-top: -10%;
     }
-    
-     ::placeholder {
-        /* Chrome, Firefox, Opera, Safari 10.1+ */
-        color: var(--c-dark);
+
+    #frm-daftar input[type="text"] {
+        padding: 15px;
+        background-color: var(--c-glass);
+        border-radius: 9.5px;
+        margin-top: 7.5px;
+        border: 1px solid #8C1C9C;
+        margin-bottom: 7.5px;
+        width: 100%;
+        box-sizing: border-box;
+        font-family: montserrat;
+        font-weight: 500;
+        color: var(--c-light);
+        font-size: 1rem;
+        transition: all .4s ease-in-out;
+    }
+
+    #frm-daftar textarea {
+        padding: 15px;
+        background-color: var(--c-glass);
+        border-radius: 9.5px;
+        margin-top: 7.5px;
+        border: 1px solid #8C1C9C;
+        margin-bottom: 7.5px;
+        width: 100%;
+        box-sizing: border-box;
+        font-family: montserrat;
+        font-weight: 500;
+        color: var(--c-light);
+        font-size: 1rem;
+        transition: all .4s ease-in-out;
+    }
+
+    #frm-daftar textarea:focus {
+        outline: none !important;
+        border: 1px solid var(--c-brand);
+        box-shadow: 0 0 10px var(--c-brand);
+    }
+
+    #frm-daftar input:focus {
+        outline: none !important;
+        border: 1px solid var(--c-brand);
+        box-shadow: 0 0 10px var(--c-brand);
+    }
+
+    input[type="text"]::-webkit-input-placeholder {
+        color: var(--c-light);
+        font-weight: 400;
+    }
+
+    input[type="text"]:-moz-placeholder {
+     color: var(--c-light);
         opacity: 1;
-        /* Firefox */
+        font-weight: 400;
     }
-    
-     ::-ms-input-placeholder {
-        /* Microsoft Edge */
+
+    input[type="text"]::-moz-placeholder {
+     color: var(--c-light);
+        opacity: 1;
+        font-weight: 400;
+    }
+
+    input[type="text"]:-ms-input-placeholder {
+     color: var(--c-light);
+     font-weight: 400;
+    }
+
+    input[type="text"]::-ms-input-placeholder {
+     color: var(--c-light);
+     font-weight: 400;
+    }
+
+    input[type="text"]::placeholder {
+     color: var(--c-light);
+     font-weight: 400;
+    }
+
+    input[type="text"]:focus::-webkit-input-placeholder {
+        color: transparent;
+    }
+
+    input[type="text"]:focus:-moz-placeholder {
+        color: transparent;
+    }
+
+    input[type="text"]:focus::-moz-placeholder {
+        color: transparent;
+    }
+
+    input[type="text"]:focus:-ms-input-placeholder {
+        color: transparent;
+    }
+
+    input[type="text"]:focus::-ms-input-placeholder {
+        color: transparent;
+    }
+
+    input[type="text"]:focus::placeholder {
+        color: transparent;
+    }
+
+    #frm-daftar input[type="radio"] {
+        accent-color: var(--c-brand);
+        transition: all .4s ease-in-out;
+    }
+
+
+    .form-select option {
+        margin: 40px;
+        background-color: #07050a;
+        font-weight: 400;
+     color: var(--c-light);
+        border: 1px solid #8C1C9C;
+    }
+
+    .form-select option:checked {
+        background-color: var(--c-brand);
+        font-weight: 400;
+        color: #07050a;
+    }
+
+    select.form-select option:hover {
+        background-color: red;
+        box-shadow: 0 0 10px 100px #1882A8 inset;
+    }
+
+    .form-select {
+        color: var(--c-light);
+        background: var(--c-glass);
+        border: 1px solid #8C1C9C;
+        transition: all .4s ease-in-out;
+        font-size: 1rem;
+    }
+
+    .form-select:focus {
+        outline: none !important;
+        border: 1px solid var(--c-brand);
+        box-shadow: 0 0 10px var(--c-brand);
+    }
+
+    /* List */
+
+    #edit-btn {
+        background: var(--c-brand);
+        font-weight: 600;
         color: var(--c-dark);
+        font-size: 1rem;
+        border: 0 none;
+        border-radius: 30px;
+        cursor: pointer;
+        padding: 10px 25px;
+        margin: 10px 5px;
+        transition: all .2s ease-in-out;
+    }
+
+    #edit-btn:hover {
+        box-shadow: 0 0 10px var(--c-brand);
+        text-shadow: 0 0 10px var(--c-brand);
+    }
+
+    #daftar-btn-3{
+        background: transparent;
+        font-weight: 600;
+        color: var(--c-light);
+        background-color: transparent;
+        border: 2px solid var(--c-brand);
+        font-size: 1rem;
+        border-radius: 30px;
+        cursor: pointer;
+        padding: 10px 25px;
+        margin-top: -25px;
+        margin-bottom: 5px;
+        transition: all .2s ease-in-out;
+    }
+
+    #daftar-btn-3:hover {
+        box-shadow: 0 0 10px var(--c-brand);
+        text-shadow: 0 0 10px var(--c-brand);
+    }
+
+    #hapus-btn {
+        background: transparent;
+        font-weight: 600;
+        color: var(--c-light);
+        background-color: transparent;
+        border: 2px solid var(--c-brand);
+        font-size: 1rem;
+        border-radius: 30px;
+        cursor: pointer;
+        padding: 10px 25px;
+        margin: 15px 5px;
+        transition: all .2s ease-in-out;
+    }
+
+    #hapus-btn:hover {
+        box-shadow: 0 0 10px var(--c-brand);
+        text-shadow: 0 0 10px var(--c-brand);
+    }
+
+    #list-siswa {
+        font-size: 1rem;
+    }
+
+    tr {
+        color: var(--c-light);
+    }
+
+    td {
+        vertical-align: middle;
+        color: var(--c-light);
+        font-weight: 400;
+        border-bottom: solid 1px var(--c-brand);
+    }
+
+    #table-siswa {
+        margin-top: 10px;
+    }
+
+    .text-center th {
+        background-color: #C634DB;
+        color: var(--c-dark);
+        border-right: solid 1px var(--c-dark); 
+        border-left: solid 1px var(--c-dark);
+        border-bottom: transparent;
+    }
+    .text-center th:first-of-type {
+        border-left: transparent;
+    }
+    .text-center th:last-of-type {
+        border-right: transparent;
     }
